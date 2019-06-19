@@ -12,11 +12,11 @@ class Catalogue extends CI_Controller {
 		$this->load->library('grocery_CRUD');
 	}
 
-	public function _example_output($output = null)
+	public function _catalogue_output($output = null)
 	{
         $this->load->view('_base/head');
         $this->load->view('_partials/navbar');
-        $this->load->view('catalogue.php',$output);
+        $this->load->view('catalogue.php',(array)$output);
         $this->load->view('_base/foot');
 	}
 
@@ -24,12 +24,12 @@ class Catalogue extends CI_Controller {
 	{
 		$output = $this->grocery_crud->render();
 
-		$this->_example_output($output);
+		$this->_catalogue_output($output);
 	}
 
 	public function index()
 	{
-		$this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
+		$this->_catalogue_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
 	}
 
 	public function formation()
@@ -47,7 +47,7 @@ class Catalogue extends CI_Controller {
                         $crud->set_relation('id_type_formation','type_formation', 'nom');
                         $crud->set_relation('id_type_stage','type_stage', 'nom');
                         $crud->set_relation('id_rythme','type_periode', 'nom');
-                        $crud->set_relation('id_site','site', '{ville},{adresse}'); 
+                        $crud->set_relation('id_site','site', '{ville},{adresse}');
 			$crud->display_as('id_domaine','Domaine');
 			$crud->display_as('id_filiere','Filière');
 			$crud->display_as('id_type_formation','Type formation');
@@ -68,7 +68,7 @@ class Catalogue extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output);
+			$this->_catalogue_output($output);
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -91,7 +91,7 @@ class Catalogue extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output);
+			$this->_catalogue_output($output);
 	}
 
 	public function customers_management()
@@ -108,7 +108,10 @@ class Catalogue extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output);
+			var_dump($output);
+			exit();
+
+			$this->_catalogue_output($output);
 	}
 
 	public function orders_management()
@@ -124,7 +127,7 @@ class Catalogue extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output);
+			$this->_catalogue_output($output);
 	}
 
 	public function products_management()
@@ -138,7 +141,7 @@ class Catalogue extends CI_Controller {
 
 			$output = $crud->render();
 
-			$this->_example_output($output);
+			$this->_catalogue_output($output);
 	}
 
 	public function valueToEuro($value, $row)
@@ -159,7 +162,7 @@ class Catalogue extends CI_Controller {
 
 		$output = $crud->render();
 
-		$this->_example_output($output);
+		$this->_catalogue_output($output);
 	}
 
 	public function film_management_twitter_bootstrap()
@@ -176,7 +179,7 @@ class Catalogue extends CI_Controller {
 			$crud->fields('title', 'description', 'actors' ,  'category' ,'release_year', 'rental_duration', 'rental_rate', 'length', 'replacement_cost', 'rating', 'special_features');
 
 			$output = $crud->render();
-			$this->_example_output($output);
+			$this->_catalogue_output($output);
 
 		}catch(Exception $e){
 			show_error($e->getMessage().' --- '.$e->getTraceAsString());
@@ -199,7 +202,7 @@ class Catalogue extends CI_Controller {
 		$css_files = $output1->css_files + $output2->css_files + $output3->css_files;
 		$output = "<h1>List 1</h1>".$output1->output."<h1>List 2</h1>".$output2->output."<h1>List 3</h1>".$output3->output;
 
-		$this->_example_output((object)array(
+		$this->_catalogue_output((object)array(
 				'js_files' => $js_files,
 				'css_files' => $css_files,
 				'output'	=> $output
@@ -217,7 +220,7 @@ class Catalogue extends CI_Controller {
 		$output = $crud->render();
 
 		if($crud->getState() != 'list') {
-			$this->_example_output($output);
+			$this->_catalogue_output($output);
 		} else {
 			return $output;
 		}
@@ -242,7 +245,7 @@ class Catalogue extends CI_Controller {
 		$output = $crud->render();
 
 		if($crud->getState() != 'list') {
-			$this->_example_output($output);
+			$this->_catalogue_output($output);
 		} else {
 			return $output;
 		}
@@ -265,7 +268,7 @@ class Catalogue extends CI_Controller {
 		$output = $crud->render();
 
 		if($crud->getState() != 'list') {
-			$this->_example_output($output);
+			$this->_catalogue_output($output);
 		} else {
 			return $output;
 		}

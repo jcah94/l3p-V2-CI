@@ -80,7 +80,7 @@ $(document).ready(function() {
                  },
         // Load data for the table's content from an Ajax source
         "ajax": {
-            "url": "<?php echo site_url('formation/ajax_list')?>",
+            "url": "<?php echo site_url('formation_ajax/ajax_list')?>",
             "type": "POST"
         },
 

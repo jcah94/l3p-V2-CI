@@ -83,6 +83,8 @@
         var site=document.getElementById('id_site').value;
         var key_word=document.getElementById('key_word').value;
         var regex_alternance=document.getElementById('id_rythme').value;
+        
+        //split regex_stage >> display value splitted
         loadTable(type_formation, domaine, composante, filiere, diplome, site, key_word,regex_alternance);
     }
 

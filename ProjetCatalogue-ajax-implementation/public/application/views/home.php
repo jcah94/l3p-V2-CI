@@ -24,6 +24,8 @@ Le Bureau d'Aide à l'Insertion Professionnelle (BAIP) au sein du SCUIO a pour m
 <li>conseiller les étudiants sur leurs problématiques liées à l'emploi et à l'insertion professionnelle,</li>
 <li>évaluer les stages et l’insertion professionnelle.</li>
 </ul>
+<br>
+<br>
 <p style="float: right"><a class="btn btn-danger btn-lg" href="<?php echo base_url(); ?>index.php/formation" role="button">Aller au catalogue >></a></p>
                 </div>
             </div>
